@@ -8,6 +8,10 @@ const cors = require('cors');
 const { isProduction } = require('./config/keys');
 
 require('./models/User');
+require('./models/Tweet');
+
+require('./config/passport');
+const passport = require('passport');
 
 const usersRouter = require('./routes/api/users');
 const tweetsRouter = require('./routes/api/tweets');
@@ -20,6 +24,7 @@ app.use(express.json()); // parse JSON request body
 app.use(express.urlencoded({ extended: false })); // parse urlencoded request body
 app.use(cookieParser()); // parse cookies as an object on req.cookies
 
+app.use(passport.initialize());
 // Security Middleware
 if (!isProduction) {
     // Enable CORS only in development because React will be on the React
