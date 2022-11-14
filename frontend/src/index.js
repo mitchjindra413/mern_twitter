@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import configureStore from './store/store';
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
 let store = configureStore({})
 
